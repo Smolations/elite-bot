@@ -1,4 +1,4 @@
-FROM node:8-alpine
+FROM node:10-alpine
 
 ENV WORK_DIR /usr/src/nectarbot
 ENV NODE_ENV production

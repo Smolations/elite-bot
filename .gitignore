@@ -7,4 +7,5 @@ docs/*
 log/*
 *.log
 test.js
-.now.env.development
+.pkcs12
+
