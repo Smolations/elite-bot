@@ -14,7 +14,7 @@
     "start": "node index.js",
     "start:docker": "docker -i -t -p 5000:5000 $IMAGE_TAG",
     "start:watch": "nodemon --config ./elitebot.nodemon.json",
-    "docs": "jsdoc -c ./jsdoc.conf.json",
+    "docs": "webpack -c webpack.config.js && jsdoc -c ./jsdoc.conf.json",
     "docs:watch": "nodemon --config ./docs.nodemon.json",
     "lint": "eslint '**/*.js'",
     "lint:fix": "eslint --fix '**/*.js'",
@@ -34,14 +34,14 @@
   "dependencies": {
     "@octokit/rest": "^15.8.1",
     "@slack/client": "^4.2.2",
-    "aws-sdk": "^2.249.1",
-    "docdash": "^1.0.2",
-    "jenkins": "^0.20.1",
     "jsdoc": "^3.5.5",
     "lodash": "^4.17.11",
     "lokijs": "^1.5.5",
     "moment": "^2.22.1",
     "moment-timezone": "^0.5.17",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "semantic-ui-react": "^0.85.0",
     "toast-jsdoc": "^1.0.2",
     "traverse": "^0.6.6",
     "tui-jsdoc-template": "^1.2.2",
@@ -50,6 +50,12 @@
     "yargs": "^11.1.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "css-loader": "^1.0.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-airbnb-base": "^12.1.0",
@@ -60,6 +66,10 @@
     "jasmine-spec-reporter": "^4.2.1",
     "nock": "^9.3.0",
     "nodemon": "^1.17.5",
-    "request": "^2.87.0"
+    "request": "^2.87.0",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.8"
   }
 }

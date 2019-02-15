@@ -1,7 +1,4 @@
-const fs = require('fs');
-const dumper = require('jsdoc/util/dumper')
-
-
+/* eslint-disable indent, no-nested-ternary, space-infix-ops */
 /**
     @overview Builds a tree-like JSON string from the doclet data.
     @version 0.0.3
@@ -9,6 +6,8 @@ const dumper = require('jsdoc/util/dumper')
         ./jsdoc scratch/jsdoc_test.js -t templates/haruki -d console -q format=xml
  */
 'use strict';
+
+var xml = require('js2xmlparser');
 
 var hasOwnProp = Object.prototype.hasOwnProperty;
 
@@ -212,12 +211,6 @@ exports.publish = function(data, opts) {
 
     data({undocumented: true}).remove();
     docs = data().get(); // <-- an array of Doclet objects
-
-
-    fs.writeFileSync('./docs_theme/static/dist/docs.json', dumper.dump(docs), 'utf8');
-
-    return;
-
 
     graft(root, docs);
 

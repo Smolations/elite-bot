@@ -17,9 +17,9 @@
   },
   "sourceType": "module",
   "opts": {
-    // "template": "./docs_theme",
+    "template": "./docs_theme",
     // "template": "./node_modules/docdash",
-    "template": "./node_modules/tui-jsdoc-template",
+    // "template": "./node_modules/tui-jsdoc-template",
     // "template": "./node_modules/toast-jsdoc",
     // "template": "templates/default",
     // "template": "templates/haruki",
@@ -38,34 +38,23 @@
     "monospaceLinks": false,
     "name": "elitebot",
     "default": {
-      "staticFiles": {
-        "include": ["docs_assets/"]
-      }
+      // "staticFiles": {
+      //   "include": ["docs_assets/"]
+      // }
     },
-    "css": [
-      "styles/tui-jsdoc-template.styles.css"
-    ],
+    // "css": [
+    //   "styles/tui-jsdoc-template.styles.css"
+    // ],
+    // "tabNames": {
+    //   "api": "API",
+    //   "tutorials": "Tutorials"
+    // },
+    // "footerText": "<script type='text/javascript' src='scripts/modify-template.js'></script>"
     "logo": {
       "url": "/img/elite_logo_185x185.png",
       "width": "75px",
       "height": "75px",
       "link": "/"
-    },
-    "tabNames": {
-      "api": "API",
-      "tutorials": "Tutorials"
-    },
-    "footerText": "<script type='text/javascript' src='scripts/modify-template.js'></script>"
-  },
-  "docdash": {
-    "sectionOrder": [
-       "Tutorials",
-       "Mixins",
-       "Interfaces",
-       "Classes",
-       "Namespaces",
-       "Externals"
-    ],
-    "collapse": true
+    }
   }
 }
