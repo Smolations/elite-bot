@@ -1,0 +1,13 @@
+{
+  "watch": [
+    "config/",
+    "db/",
+    "interfaces/",
+    "mixins/",
+    "models/",
+    "subscribers/elite-subscriber/",
+    "index.js"
+  ],
+  "ext": "js",
+  "exec": "npm start"
+}

@@ -17,14 +17,16 @@
   },
   "sourceType": "module",
   "opts": {
+    // "template": "./node_modules/docdash",
     "template": "./node_modules/tui-jsdoc-template",
     // "template": "./node_modules/toast-jsdoc",
     // "template": "templates/default",
     // "template": "templates/haruki",
     "encoding": "utf8",
     "destination": "./docs/",
-    "recurse": true,
-    "tutorials": "./tutorials"
+    "tutorials": "./tutorials",
+    // "verbose": true,
+    "recurse": true
   },
   "tags": {
     "allowUnknownTags": true,
@@ -33,19 +35,19 @@
   "templates": {
     "cleverLinks": true,
     "monospaceLinks": false,
-    "name": "slackbot",
+    "name": "elitebot",
     "default": {
       "staticFiles": {
         "include": ["docs_assets/"]
       }
     },
     "css": [
-      "styles/nectar.styles.css"
+      "styles/tui-jsdoc-template.styles.css"
     ],
     "logo": {
-      "url": "/img/nectar_logo_200x200.png",
-      "width": "50px",
-      "height": "50px",
+      "url": "/img/elite_logo_185x185.png",
+      "width": "75px",
+      "height": "75px",
       "link": "/"
     },
     "tabNames": {
@@ -53,5 +55,16 @@
       "tutorials": "Tutorials"
     },
     "footerText": "<script type='text/javascript' src='scripts/modify-template.js'></script>"
+  },
+  "docdash": {
+    "sectionOrder": [
+       "Tutorials",
+       "Mixins",
+       "Interfaces",
+       "Classes",
+       "Namespaces",
+       "Externals"
+    ],
+    "collapse": true
   }
 }

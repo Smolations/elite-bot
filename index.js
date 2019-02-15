@@ -1,10 +1,10 @@
-const LokiAdapter = require('./db/loki/loki-adapter');
+const LokiAdapter = require('./db/loki/loki-fs-adapter');
 
 const SlackBot = require('./models/slack-bot');
 
 
 // bring in desired subscribers
-const NectarSubscriber = require('./subscribers/nectar-subscriber');
+const EliteSubscriber = require('./subscribers/elite-subscriber');
 
 // get some persistence action goin...
 const env = process.env.NODE_ENV || 'development';
@@ -23,7 +23,7 @@ SlackBot.serverOpts({ configKey: 'webServer' });
 const eliteBot = new SlackBot({ configKey: 'eliteBot', dbAdapter });
 
 // add the subscribers ("subscribe them")
-eliteBot.addSubscriber(NectarSubscriber);
+eliteBot.addSubscriber(EliteSubscriber);
 
 // and awaaaaAAAAaaay we go!
 eliteBot.start();

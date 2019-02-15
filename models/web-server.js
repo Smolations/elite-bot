@@ -196,7 +196,7 @@ class WebServer extends Identifyable(Logable(Configable(Envable(EventEmitter))))
       fs.exists(filePath, (exist) => {
         if (!exist) {
           // if the file is not found, return 404
-          this._log.error(`File ${uri} not found!`);
+          this._log.error(`File ${uri} not found (@${filePath})!`);
           this[_write](response, 404, `File ${uri} not found!`);
           return;
         }

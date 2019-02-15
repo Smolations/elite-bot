@@ -22,7 +22,7 @@ A slackbot is basically a receiver/dispatcher for hooks and messages. It listens
 |--------------------|
 | SlackBot           |     _________________    ________________
 | __________________ |     |               |    |              |
-| |   Slack and    | | --> | Subscriber(s) | -> | Listener(s) |
+| |   Slack and    | | --> | Subscriber(s) | -> | Listener(s)  |
 | |   WebServer    | |     |_______________|    |______________|
 | |   controls     | |
 |--------------------|
@@ -33,7 +33,7 @@ ______________________________________________________________________________
 |                                 Registry                                   |
 |                                                                            |
 | _____________ _____________ ____________ ____________________ ____________ |
-| |           | |  Slack    | |          | |    ListenerGroup    | | Whatever | |
+| |           | |  Slack    | |          | |  ListenerGroup   | | Whatever | |
 | | WebServer | | (RTM/Web) | | Database | | (per subscriber) | | you want | |
 |_|___________|_|___________|_|__________|_|__________________|_|__________|_|
 ```

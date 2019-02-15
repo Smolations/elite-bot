@@ -1,6 +1,6 @@
 FROM node:10-alpine
 
-ENV WORK_DIR /usr/src/nectarbot
+ENV WORK_DIR /usr/src/elitebot
 ENV NODE_ENV production
 
 # Create nectar directory
@@ -15,4 +15,4 @@ RUN ls -la
 
 EXPOSE 5000
 
-CMD ["sh", "-c", "npm run create-config && npm run start:${APP_NAME-nectarbot}"]
+CMD ["sh", "-c", "npm run create-config && npm run start"]
