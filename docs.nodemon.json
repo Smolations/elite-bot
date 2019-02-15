@@ -1,10 +1,12 @@
 {
   "watch": [
     "docs_assets/",
+    "docs_theme/",
     "interfaces/",
     "mixins/",
     "models/",
-    "tutorials/"
+    "tutorials/",
+    "jsdoc.conf.json"
   ],
   "ext": "css,js,json,md",
   "exec": "npm run docs"

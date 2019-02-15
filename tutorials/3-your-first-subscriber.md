@@ -24,4 +24,4 @@ class WonderSubscriber extends Subscriber {
 module.exports = WonderSubscriber;
 ```
 
-Before we get into the nitty gritty of processors, you might want check out some of the provided items that come with every `Subscriber` instance [here]{@tutorial 3.1-free-with-every-subscriber}. If you'd rather move on it's time to check out {@tutorial 4-your-first-processor}.
+Before we get into the nitty gritty of processors, you might want check out some of the provided items that come with every `Subscriber` instance [here]{@tutorial 3.1-free-with-every-subscriber}. If you'd rather move on it's time to check out {@tutorial 4-your-first-listener}.

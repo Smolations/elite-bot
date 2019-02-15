@@ -17,6 +17,7 @@
   },
   "sourceType": "module",
   "opts": {
+    // "template": "./docs_theme",
     // "template": "./node_modules/docdash",
     "template": "./node_modules/tui-jsdoc-template",
     // "template": "./node_modules/toast-jsdoc",

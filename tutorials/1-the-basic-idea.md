@@ -43,7 +43,12 @@ to the slack bot, which then _subscribe_ to desired uri hooks. When one of these
 
 ### Slackbot
 
-Each Slackbot instance corresponds to a single Slack app. A Slack app can be configured with three URLs: an endpoint to which slash commands are sent, an endpoint to which options load requests are sent (to dynamically populate `select` elements), and an endpoint to which interactions are sent (when a `select` option is chosen or when a button is clicked). It is entirely possible to create multiple slack apps that all point to the same URLs, but the single Slackbot instance would have to respond to requests with all sorts of responsibilities and the code would get complicated really fast. Try and stick to the one-slack-app-one-slackbot paradigm.
+Each Slackbot instance corresponds to a single Slack app. A Slack app can be configured with three URLs:
+  - an endpoint to which slash commands are sent
+  - an endpoint to which options load requests are sent (to dynamically populate `select` elements)
+  - an endpoint to which interactions are sent (when a `select` option is chosen or when a button is clicked)
+
+It is entirely possible to create multiple slack apps that all point to the same URLs, but the single Slackbot instance would have to respond to requests with all sorts of responsibilities and the code would get complicated really fast. Try and stick to the one-slack-app-one-slackbot paradigm.
 
 ### Subscribers
 
