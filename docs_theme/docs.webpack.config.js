@@ -40,6 +40,7 @@ module.exports = {
     alias: {
       'sui': 'semantic-ui-react',
       'components': path.resolve(__dirname, 'src/components'),
+      'jsdoc-tools': path.resolve(__dirname, 'publish-tools'),
     },
     extensions: ['*', '.js', '.jsx']
   },

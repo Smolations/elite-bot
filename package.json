@@ -25,6 +25,7 @@
     "test": "NODE_ENV=test jasmine --config=./jasmine.json",
     "test:version": "./bin/version-diff",
     "test:watch": "nodemon --config ./spec.nodemon.json",
+    "eslint": "eslint",
     "jasmine": "jasmine",
     "jsdoc": "jsdoc",
     "autotest": "jasmine --color --autotest spec/ --watch models",

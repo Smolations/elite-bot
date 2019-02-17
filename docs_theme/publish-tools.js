@@ -1,17 +1,10 @@
-'use strict';
+/* eslint no-param-reassign:off, no-plusplus:off */
 
 const util = require('util');
 
 const doop = require('jsdoc/util/doop');
-const env = require('jsdoc/env');
-const fs = require('jsdoc/fs');
 const helper = require('jsdoc/util/templateHelper');
-const logger = require('jsdoc/util/logger');
 const path = require('jsdoc/path');
-const template = require('jsdoc/template');
-
-
-const hasOwnProp = Object.prototype.hasOwnProperty;
 
 
 const publishTools = {
@@ -33,7 +26,7 @@ const publishTools = {
     let types = [];
 
     items.forEach((item) => {
-      types = types.concat( publishTools.buildItemTypeStrings(item) );
+      types = types.concat(publishTools.buildItemTypeStrings(item));
     });
 
     return types;
@@ -43,9 +36,7 @@ const publishTools = {
    *  @returns {array.<params?>} A filtered version of the given params.
    */
   addParamAttributes(params) {
-    return params.filter((param) => {
-      return param.name && param.name.indexOf('.') === -1;
-    }).map(publishTools.updateItemName);
+    return params.filter(param => param.name && param.name.indexOf('.') === -1).map(publishTools.updateItemName);
   },
 
   /**
@@ -55,7 +46,7 @@ const publishTools = {
   addSignatureParams(f) {
     const params = f.params ? publishTools.addParamAttributes(f.params) : [];
 
-    f.signature = util.format( '%s(%s)', (f.signature || ''), params.join(', ') );
+    f.signature = util.format('%s(%s)', (f.signature || ''), params.join(', '));
   },
 
   /**
@@ -92,8 +83,8 @@ const publishTools = {
       returnTypesString = util.format(' &rarr; %s{%s}', attribsString, returnTypes.join('|'));
     }
 
-    f.signature = '<span class="signature">' + (f.signature || '') + '</span>' +
-        '<span class="type-signature">' + returnTypesString + '</span>';
+    f.signature = `<span class="signature">${f.signature || ''}</span>` +
+        `<span class="type-signature">${returnTypesString}</span>`;
   },
 
   /**
@@ -103,8 +94,8 @@ const publishTools = {
   addSignatureTypes(f) {
     const types = f.type ? publishTools.buildItemTypeStrings(f) : [];
 
-    f.signature = (f.signature || '') + '<span class="type-signature">' +
-        (types.length ? ' :' + types.join('|') : '') + '</span>';
+    f.signature = `${f.signature || ''}<span class="type-signature">${
+      types.length ? ` :${types.join('|')}` : ''}</span>`;
   },
 
   /**
@@ -132,14 +123,12 @@ const publishTools = {
         module.modules = symbols[module.longname]
           // Only show symbols that have a description. Make an exception for classes, because
           // we want to show the constructor-signature heading no matter what.
-          .filter((symbol) => {
-            return symbol.description || symbol.kind === 'class';
-          })
+          .filter(symbol => symbol.description || symbol.kind === 'class')
           .map((symbol) => {
             symbol = doop(symbol);
 
             if (symbol.kind === 'class' || symbol.kind === 'function') {
-              symbol.name = symbol.name.replace('module:', '(require("') + '"))';
+              symbol.name = `${symbol.name.replace('module:', '(require("')}"))`;
             }
 
             return symbol;
@@ -155,7 +144,7 @@ const publishTools = {
     let attribsString = '';
 
     if (attribs && attribs.length) {
-      attribsString = helper.htmlsafe( util.format('(%s) ', attribs.join(', ')) );
+      attribsString = helper.htmlsafe(util.format('(%s) ', attribs.join(', ')));
     }
 
     return attribsString;
@@ -170,7 +159,7 @@ const publishTools = {
     if (item && item.type && item.type.names) {
       item.type.names.forEach((name) => {
         const safeName = helper.htmlsafe(name);
-        types.push( helper.linkto(name, safeName) );
+        types.push(helper.linkto(name, safeName));
       });
     }
 
@@ -224,7 +213,7 @@ const publishTools = {
     url = helper.createLink(doclet);
     url = url.replace(/(#.+|$)/, hash);
 
-    return '<a href="' + url + '">' + hash + '</a>';
+    return `<a href="${url}">${hash}</a>`;
   },
 
   /**
@@ -271,7 +260,7 @@ const publishTools = {
     // bit messy)
     } else if (doclet.kind === 'namespace' && doclet.meta && doclet.meta.code &&
         doclet.meta.code.type && doclet.meta.code.type.match(/[Ff]unction/)) {
-        needsSig = true;
+      needsSig = true;
     }
 
     return needsSig;
@@ -288,7 +277,7 @@ const publishTools = {
   shortenPaths(files, commonPrefix) {
     Object.keys(files).forEach((file) => {
       files[file].shortened = files[file].resolved.replace(commonPrefix, '')
-        .replace(/\\/g, '/');  // always use forward slashes
+        .replace(/\\/g, '/'); // always use forward slashes
     });
 
     return files;
@@ -301,7 +290,7 @@ const publishTools = {
     return helper.toTutorial(tutorial, null, {
       tag: 'em',
       classname: 'disabled',
-      prefix: 'Tutorial: '
+      prefix: 'Tutorial: ',
     });
   },
 
@@ -313,13 +302,13 @@ const publishTools = {
     let itemName = item.name || '';
 
     if (item.variable) {
-      itemName = '&hellip;' + itemName;
+      itemName = `&hellip;${itemName}`;
     }
 
     if (attributes && attributes.length) {
       itemName = util.format(
         '%s<span class="signature-attributes">%s</span>',
-        itemName, attributes.join(', ')
+        itemName, attributes.join(', '),
       );
     }
 
