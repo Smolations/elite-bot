@@ -4,7 +4,6 @@ development*
 production*
 db/data/*
 docs/*
-docs_theme/static/dist/*
 log/*
 *.log
 test.js

@@ -18,9 +18,15 @@
   "sourceType": "module",
   "opts": {
     "template": "./docs_theme",
+    // "template": "./node_modules/docdash",
+    // "template": "./node_modules/tui-jsdoc-template",
+    // "template": "./node_modules/toast-jsdoc",
+    // "template": "templates/default",
+    // "template": "templates/haruki",
     "encoding": "utf8",
     "destination": "./docs/",
     "tutorials": "./tutorials",
+    // "verbose": true,
     "recurse": true
   },
   "tags": {
@@ -32,10 +38,18 @@
     "monospaceLinks": false,
     "name": "elitebot",
     "default": {
-      "staticFiles": {
-        "include": ["docs_assets/"]
-      }
+      // "staticFiles": {
+      //   "include": ["docs_assets/"]
+      // }
     },
+    // "css": [
+    //   "styles/tui-jsdoc-template.styles.css"
+    // ],
+    // "tabNames": {
+    //   "api": "API",
+    //   "tutorials": "Tutorials"
+    // },
+    // "footerText": "<script type='text/javascript' src='scripts/modify-template.js'></script>"
     "logo": {
       "url": "/img/elite_logo_185x185.png",
       "width": "75px",

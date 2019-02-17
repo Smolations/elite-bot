@@ -8,6 +8,9 @@
     "tutorials/",
     "jsdoc.conf.json"
   ],
-  "ext": "css,js,json,md",
-  "exec": "npm run docs"
+  "ignore":[
+    "docs_theme/static/json/"
+  ],
+  "ext": "css,js,json,md,tmpl",
+  "exec": "npm run docs:clean && npm run docs"
 }
