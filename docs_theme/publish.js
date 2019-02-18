@@ -64,23 +64,24 @@ class Publisher {
           }
 
           html = linktoFn(item.longname, displayName.replace(/\b(module|event):/g, ''));
-          // itemsNav.push(linktoFn(item.longname, displayName.replace(/\b(module|event):/g, '')));
 
           itemsSeen[item.longname] = true;
         }
 
         itemsNav.push({
           id: displayName,
-          html,
+          anchor: tools.anchorParse(html),
+          items: [],
         });
       });
 
       if (itemsNav.length) {
         nav.push({
           id: itemHeading,
-          heading: itemHeading,
+          anchor: tools.anchorParse(`<a href="">${itemHeading}</a>`),
           items: itemsNav,
         });
+        // logger.warn(itemsNav);
       }
     }
 
@@ -107,7 +108,7 @@ class Publisher {
     const seenTutorials = {};
     const nav = [{
       id: 'Home',
-      heading: '<a href="index.html">Home</a>',
+      anchor: tools.anchorParse('<a href="index.html">Home</a>'),
       items: [],
     }];
     let globalNavItems;
@@ -128,7 +129,8 @@ class Publisher {
         if (g.kind !== 'typedef' && !hasOwnProp.call(seen, g.longname)) {
           globalNavItems.push({
             id: g.longname, // maybe g.name better? check conf?
-            html: helper.linkto(g.longname, g.name),
+            anchor: tools.anchorParse(helper.linkto(g.longname, g.name)),
+            items: [],
           });
         }
         seen[g.longname] = true;
@@ -138,13 +140,13 @@ class Publisher {
         // turn the heading into a link so you can actually get to the global page
         nav.push({
           id: 'Global',
-          heading: helper.linkto('global', 'Global'),
+          anchor: tools.anchorParse(helper.linkto('global', 'Global')),
           items: [],
         });
       } else {
         nav.push({
           id: 'Global',
-          heading: 'Global',
+          anchor: tools.anchorParse('<a href="">Global</a>'), // this is weird...check it out later
           items: globalNavItems,
         });
       }

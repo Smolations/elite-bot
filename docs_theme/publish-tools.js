@@ -4,6 +4,7 @@ const util = require('util');
 
 const doop = require('jsdoc/util/doop');
 const helper = require('jsdoc/util/templateHelper');
+const logger = require('jsdoc/util/logger');
 const path = require('jsdoc/path');
 
 
@@ -96,6 +97,39 @@ const publishTools = {
 
     f.signature = `${f.signature || ''}<span class="type-signature">${
       types.length ? ` :${types.join('|')}` : ''}</span>`;
+  },
+
+  /**
+   *  @param {string} html The HTML anchor to parse.
+   *  @returns {object} Of the format `{ attr: {}, content: '' }`.
+   */
+  anchorParse(html) {
+    // <a class="foo" href="module-slackbot_mixins-Jsonable.html">Jsonable</a>
+    // 0: "<a class="foo" href="module-slackbot_mixins-Jsonable.html">Jsonable</a>"
+    // 1: " class="foo" href="module-slackbot_mixins-Jsonable.html""
+    // 2: "module-slackbot_mixins-Jsonable.html"
+    // 3: "Jsonable"
+    const patt = /^<a((?:\s+(?:[a-z]+)=\"([^"]*)\")+)>([^<]*)<\/a>/;
+    const matched = patt.exec(html);
+
+    if (!matched) {
+      throw new Error(`Unable to match anchor HTML on:\n${html}`);
+    }
+
+    const data = {
+      content: matched[3],
+    };
+    const attribs = matched[1].trim().split(/\s(?=[-_a-z]+=\")/);
+    const attribsMap = {};
+
+    attribs.forEach(attrib => {
+      [name, value] = attrib.split('=');
+      attribsMap[name] = value.substr(1, value.length - 2);
+    });
+
+    data.attr = attribsMap;
+
+    return data;
   },
 
   /**
